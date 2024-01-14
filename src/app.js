@@ -27,6 +27,7 @@ app.set('views', path.join(__dirname, '/views')); // Define la ubicación de la 
 // ************ Route System require and use() ************
 const mainRouter = require('./routes/main'); // Rutas main
 const productsRouter = require('./routes/products'); // Rutas /products
+const { log } = require('console');
 
 app.use('/', mainRouter);
 app.use('/products', productsRouter);
@@ -48,6 +49,7 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 // ************ exports app - dont'touch ************
 module.exports = app;
